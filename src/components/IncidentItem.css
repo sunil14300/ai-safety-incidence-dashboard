@@ -1,0 +1,33 @@
+.incident-card {
+  background: #ffffff;
+  padding: 1.25rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+  border-left: 6px solid #dee2e6;
+}
+
+.incident-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.severity-low {
+  border-left-color: #28a745;
+}
+.severity-medium {
+  border-left-color: #ffc107;
+}
+.severity-high {
+  border-left-color: #dc3545;
+}
+
+.incident-header h4 {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.incident-description {
+  margin-top: 0.75rem;
+  color: #444;
+}

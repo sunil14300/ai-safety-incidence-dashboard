@@ -1,24 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import { Incident } from './types';
+import { mockIncidents } from './data';
+import IncidentItem from './components/IncidentItem';
+import FilterControls from './components/FilterControls';
+import IncidentForm from './components/IncidentForm';
 
 function App() {
+  const [incidents, setIncidents] = useState<Incident[]>(mockIncidents);
+  const [filter, setFilter] = useState('All');
+  const [sort, setSort] = useState('newest');
+
+  const handleAddIncident = (newIncident: Incident) => {
+    setIncidents(prev => [newIncident, ...prev]);
+  };
+
+  const filtered = incidents
+    .filter(inc => filter === 'All' || inc.severity === filter)
+    .sort((a, b) =>
+      sort === 'newest'
+        ? new Date(b.reported_at).getTime() - new Date(a.reported_at).getTime()
+        : new Date(a.reported_at).getTime() - new Date(b.reported_at).getTime()
+    );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h1 className="text-center">AI Safety Incident Dashboard</h1>
+      <FilterControls filter={filter} sort={sort} setFilter={setFilter} setSort={setSort} />
+      <IncidentForm onAdd={handleAddIncident} />
+      <div className="incident-list">
+        {filtered.map(incident => (
+          <IncidentItem key={incident.id} incident={incident} />
+        ))}
+      </div>
     </div>
   );
 }

@@ -1,0 +1,72 @@
+.incident-form {
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 0.3s ease-in-out;
+}
+
+.incident-form h3 {
+  font-weight: 700;
+  /* margin-bottom: 1.5rem; */
+  font-size: 1.5rem;
+  color: #333;
+  text-align: center;
+}
+
+.incident-form .form-control,
+.incident-form .form-select {
+  width: 93%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  transition: all 0.2s ease-in-out;
+  background-color: #f8f9fa;
+}
+
+.incident-form .form-control:focus,
+.incident-form .form-select:focus {
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  border-color: #0d6efd;
+  background-color: #fff;
+}
+
+.incident-form .form-control::placeholder,
+.incident-form .form-select::placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+
+.incident-form .form-control:disabled,
+.incident-form .form-select:disabled {
+  background-color: #e9ecef;
+  opacity: 1;
+}
+
+.incident-form button {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.incident-form button:hover {
+  background-color: #218838;
+}
+
+.incident-form button:disabled {
+  background-color: #94d3a2;
+  cursor: not-allowed;
+}
